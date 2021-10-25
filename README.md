@@ -8,6 +8,8 @@ example: levi ackerman vs Monkey D. Luffy
 # Database
 The data was scraped from a famous website called myanimelist.com.
 I got from it over 100 characters, their names, some info about them and the url of their image.
+then created a combination of the characters (the fights).
+Then inserted everything into the database.
 here is the database model used:
 ![database ERD](https://github.com/nainia-youness/anime_fight/blob/main/database_ERD.png?raw=true?)
 # Teknologies
@@ -23,4 +25,57 @@ now and the things i still need to work on in the future:
   * did not create any custom errors.
 * stored the refresh tokens on a redis database.
 * encripted the passwords before adding them to the database using bcrypt with some salt.
+# Endpoints
+
+*  Public
+
+  * GET: /api/characters/1 
+    * get img and info of character with id=1
+
+  * GET: /api/fights/0/comments
+    * get all comments of fight with id=0
+
+  * GET: /api/fights/0/characters/1/nbr_votes
+    * get number of votes of the fight 0 and the character 1    
+
+  * GET: /api/fights/0/nbr_dislikes
+
+  * GET: /api/fights/0/nbr_likes
+
+  * GET: /api/characters/0/1/fights
+    * get id of the fight with char 0 and char 1
+
+  * POST: /api/user/sign_in (body= email/password) 
+    * user get his refresh and access token  
+
+  * POST: /api/user/sign_up (body= email/password/username)
+
+*  Private (you need to send your access token to access these routes)
+
+  * POST: /api/fights/0/likes (body= islike:0 or 1)
+    * the user like(1) or dislike(0) the fight with id 0
+
+  * POST: /api/fights/0/comments (body= comment/ id_comment_responded_to:id_comment or null)
+    * the user comments on the fight
+
+  * DEL: /api/fights/comments/6
+
+  * PUT: /api/fights/comments/6 (body= comment)
+
+  * POST: /api/fights/1/votes (body= id_char_voted_for)
+    * vote for char with id=id_char_voted_for
+
+  * GET: /api/fights/0/characters/1/vote_state: 
+    * get the state of vote of the user for the fight 0 character 1
+
+  * GET: /api/fights/0/dislike_state
+
+  * GET: /api/fights/0/like_state
+
+  * POST: /api/user/token (body= refresh_token)
+    * user sends his refresh token and asks for a new access token  
+
+  * DEL: /api/user/sign_out
+
+     
 
