@@ -105,3 +105,5 @@ dist
 
 #ignore node module
 backend/node_modules/
+
+what_i_learned/
