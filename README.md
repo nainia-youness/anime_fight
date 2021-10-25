@@ -27,7 +27,7 @@ now and the things i still need to work on in the future:
 * encripted the passwords before adding them to the database using bcrypt with some salt.
 # Endpoints
 
-*  Public
+***Public**
 
   * GET: /api/characters/1 
     * get img and info of character with id=1
@@ -50,7 +50,7 @@ now and the things i still need to work on in the future:
 
   * POST: /api/user/sign_up (body= email/password/username)
 
-*  Private (you need to send your access token to access these routes)
+***Private** (you need to send your access token to access these routes)
 
   * POST: /api/fights/0/likes (body= islike:0 or 1)
     * the user like(1) or dislike(0) the fight with id 0
