@@ -25,6 +25,15 @@ now and the things i still need to work on in the future:
   * did not create any custom errors.
 * stored the refresh tokens on a redis database.
 * encripted the passwords before adding them to the database using bcrypt with some salt.
+
+# Installations
+* npm clone https://github.com/nainia-youness/anime_fight.git
+* import the mysql database
+* install and create a redis database (if on windows, you will need to install wsl)
+* start both mysql and redis servers
+* cd \anime_fight\backend\src
+* node server.js
+
 # Endpoints
 
 **Public**
